@@ -1,0 +1,9 @@
+appdirs==1.4.1
+Django==1.10.4
+django-redis==4.7.0
+mysql-connector-python==2.1.5
+packaging==16.8
+psycopg2==2.7
+pyparsing==2.1.10
+redis==2.10.5
+six==1.10.0
