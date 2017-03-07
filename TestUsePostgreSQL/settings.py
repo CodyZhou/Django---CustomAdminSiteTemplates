@@ -135,5 +135,12 @@ STATICFILES_DIRS = [
 
 
 # SMTP Mail Server Setting
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-
+    EMAIL_USE_TLS = False
+    EMAIL_HOST = 'mail.jiusite.com'
+    EMAIL_PORT = 26
+    EMAIL_HOST_USER = 'cody@jiusite.com'
+    EMAIL_HOST_PASSWORD = 'jiusite1234'
+    DEFAULT_FROM_EMAIL = 'Test Django Group <cody@jiusite.com>'
