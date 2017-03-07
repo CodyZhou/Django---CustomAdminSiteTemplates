@@ -1,0 +1,5 @@
+# For security
+settings.py
+
+# For python
+*.pyc
