@@ -25,7 +25,7 @@ class Zone(models.Model):
     name = models.CharField(max_length=100, blank=False, verbose_name='Zone Name',
                             help_text='The length is no more than 100 characters.')
     code = models.CharField(max_length=3, blank=False, verbose_name='Zone Code',
-                                  help_text='The length is no more than 3 characters.')
+                            help_text='The length is no more than 3 characters.')
     status = models.PositiveSmallIntegerField(verbose_name='Status', default=0, choices=ENABLE_DISABLE_CHOICE)
 
     class Meta:
