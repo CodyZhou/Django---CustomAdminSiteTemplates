@@ -1,4 +1,7 @@
 from django.contrib import admin
 
+from TestUsePostgreSQL.apps.Book.models import Book
+
+
 # Register your models here.
-# Test for change this file.
+admin.site.register(Book)
