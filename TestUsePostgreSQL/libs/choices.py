@@ -4,7 +4,7 @@
 # @Author  : Cody Zhou
 # @File    : choices.py
 # @Software: PyCharm
-# Description:
+# @Description:
 #   Used to define the all choices of this project.
 #
 
