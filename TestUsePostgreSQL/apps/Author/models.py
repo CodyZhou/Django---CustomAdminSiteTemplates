@@ -20,8 +20,8 @@ class Author(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=20)
     status = models.PositiveSmallIntegerField(choices=AUTHOR_STATUS_CHOICE, default=0)
-    added_date = models.DateField(auto_now_add=True)
-    updated_date = models.DateField(auto_now=True)
+    added_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'test_author'

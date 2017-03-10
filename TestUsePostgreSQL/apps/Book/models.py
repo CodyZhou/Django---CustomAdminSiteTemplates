@@ -13,8 +13,8 @@ class Book(models.Model):
     summary = models.TextField(max_length=300, blank=True, help_text='The length is no more than 300 characters.')
     status = models.PositiveSmallIntegerField(choices=BOOK_STATUS_CHOICE, default=0)
     publish_date = models.DateField()
-    added_date = models.DateField(auto_now_add=True)
-    updated_date = models.DateField(auto_now=True)
+    added_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'test_book'
