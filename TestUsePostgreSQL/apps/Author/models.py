@@ -43,7 +43,7 @@ class AuthorAddress(models.Model):
     """
     author = models.ForeignKey(Author, blank=False, on_delete=models.CASCADE)
     address_1 = models.CharField(max_length=50, blank=False, help_text='This length is no more than 50 characters.')
-    address_2 = models.CharField(max_length=50, help_text='Apt. No., Suite No. and so on.<br>'
+    address_2 = models.CharField(max_length=50, blank=True, help_text='Apt. No., Suite No. and so on.<br>'
                                                           'This length is no more than 50 characters.')
     city = models.CharField(max_length=20, blank=False, help_text='City Name. '
                                                                   'This length is no more than 20 characters.')
@@ -62,14 +62,14 @@ class AuthorAddress(models.Model):
 
     def get_address(self):
         result_address = self.address_1 + ', '
-        if self.address_2 is not None:
+        if len(self.address_2) >= 1:
             result_address += self.address_2 + ', '
             pass
         result_address += self.city + ', '
-        result_address += self.zone.name
+        result_address += self.zone.code + ' '
         result_address += self.zip + ', '
         # result_address += [choice[1] for choice in COUNTRY_CHOICE if choice[0] == self.country][0]
-        result_address += self.country.name
+        result_address += self.country.iso_code_3
 
         return result_address
 

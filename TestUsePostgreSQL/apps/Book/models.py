@@ -8,7 +8,7 @@ from TestUsePostgreSQL.libs.choices import BOOK_STATUS_CHOICE
 # Create your models here.
 class Book(models.Model):
     author = models.ManyToManyField(Author, blank=False)
-    publisher = models.ForeignKey(Publisher, blank=False)
+    publisher = models.ForeignKey(Publisher, related_name='publisher_id', blank=False)
     title = models.CharField(max_length=100, blank=False, help_text='The length is no more than 100 characters.')
     summary = models.TextField(max_length=300, blank=True, help_text='The length is no more than 300 characters.')
     status = models.PositiveSmallIntegerField(choices=BOOK_STATUS_CHOICE, default=0)
@@ -23,4 +23,3 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
-
