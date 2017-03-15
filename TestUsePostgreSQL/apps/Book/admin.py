@@ -12,6 +12,8 @@ class BookAdmin(admin.ModelAdmin):
 
     search_fields = ('title',  'publisher__name')
 
+    # date_hierarchy = 'publish_date'
+
     # def show_author_full_name(self, author):
     #     return "{0} {1}" . format(author.firstname, author.lastname)
     # show_author_full_name.shor_description = "Author Name"
