@@ -1,8 +1,12 @@
 from django.db import models
 
 from TestUsePostgreSQL.libs.choices import AUTHOR_STATUS_CHOICE
-
 from TestUsePostgreSQL.apps.Localisation.models import Country, Zone
+
+from TestUsePostgreSQL.apps.validation import (
+    validator_number,
+    validator_special_character,
+)
 
 
 # Author Model
@@ -18,7 +22,8 @@ class Author(models.Model):
     firstname = models.CharField(max_length=50, help_text='This length is no more than 50 characters.')
     lastname = models.CharField(max_length=50, help_text='This length is no more than 50 characters.')
     email = models.EmailField()
-    phone = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20, validators=[validator_number],
+                             help_text='For Example: 6261234567.')
     status = models.PositiveSmallIntegerField(choices=AUTHOR_STATUS_CHOICE, default=0)
     added_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -42,13 +47,14 @@ class AuthorAddress(models.Model):
             Used to save the author's address information. An author can have many addresses.
     """
     author = models.ForeignKey(Author, blank=False, on_delete=models.CASCADE)
-    address_1 = models.CharField(max_length=50, blank=False, help_text='This length is no more than 50 characters.')
-    address_2 = models.CharField(max_length=50, blank=True, help_text='Apt. No., Suite No. and so on.<br>'
-                                                          'This length is no more than 50 characters.')
-    city = models.CharField(max_length=20, blank=False, help_text='City Name. '
-                                                                  'This length is no more than 20 characters.')
-    zip = models.CharField(max_length=20, blank=False, help_text='Zipcode.'
-                                                                 'This length is no more than 20 characters.')
+    address_1 = models.CharField(max_length=50, blank=False, validators=[validator_special_character],
+                                 help_text='This length is no more than 50 characters.')
+    address_2 = models.CharField(max_length=50, blank=True, validators=[validator_special_character],
+                                 help_text='Apt. No., Suite No. and so on. This length is no more than 50 characters.')
+    city = models.CharField(max_length=20, blank=False,
+                            help_text='City Name. This length is no more than 20 characters.')
+    zip = models.CharField(max_length=20, blank=False, validators=[validator_number],
+                           help_text='Zipcode. This length is no more than 20 characters.')
     zone = models.ForeignKey(Zone)
     country = models.ForeignKey(Country)
 
