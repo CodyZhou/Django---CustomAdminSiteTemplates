@@ -23,7 +23,7 @@ class Author(models.Model):
     lastname = models.CharField(max_length=50, help_text='This length is no more than 50 characters.')
     email = models.EmailField()
     phone = models.CharField(max_length=20, validators=[validator_number],
-                             help_text='For Example: 6261234567.')
+                             help_text='Please input all digital. For Example: 6261234567.')
     status = models.PositiveSmallIntegerField(choices=AUTHOR_STATUS_CHOICE, default=0)
     added_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
