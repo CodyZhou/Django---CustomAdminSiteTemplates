@@ -1,0 +1,25 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} | Administrator Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/admin.css' %}" />
+
+    {% block special_css %}
+    {% endblock %}
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+<script src="{% static 'staticfiles/js/jquery-3.2.0.min.js' %}"></script>
+<script src="{% static 'staticfiles/js/bootstrap.min.js' %}"></script>
+
+{% block special_js %}
+{% endblock %}
+
+</body>
+</html>
