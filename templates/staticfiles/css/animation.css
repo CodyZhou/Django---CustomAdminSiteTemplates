@@ -96,7 +96,7 @@ slideUp
 
 @keyframes slideUp {
 	0% {
-		transform: translateY(100%);
+		transform: translateY(30%);
 	}
 	50%{
 		transform: translateY(-8%);
@@ -108,7 +108,7 @@ slideUp
 		transform: translateY(-4%);
 	}
 	95%{
-		transform: translateY(2%);
+		transform: translateY(-2%);
 	}
 	100% {
 		transform: translateY(0%);
@@ -117,7 +117,7 @@ slideUp
 
 @-webkit-keyframes slideUp {
 	0% {
-		-webkit-transform: translateY(100%);
+		-webkit-transform: translateY(30%);
 	}
 	50%{
 		-webkit-transform: translateY(-8%);
@@ -129,7 +129,7 @@ slideUp
 		-webkit-transform: translateY(-4%);
 	}
 	95%{
-		-webkit-transform: translateY(2%);
+		-webkit-transform: translateY(-2%);
 	}
 	100% {
 		-webkit-transform: translateY(0%);

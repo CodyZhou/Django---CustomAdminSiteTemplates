@@ -5,29 +5,59 @@
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/animation.css' %}" />
 {% endblock %}
 
+{% block navbar %}{% endblock %}  {# We do not need navbar in login.html #}
+{% block sidebar %}{% endblock %}  {# We do not need sidebar in login.html #}
+
 {% block content %}
-<div class="login-content slideDown">
-    <form action="{{ app_path }}" method="post" id="login-form">
-        {% csrf_token %}
-        <div class="form-row">
-            {{ form.username.errors }}
-            {{ form.username.label_tag }} {{ form.username }}
+<div class="admin-login-content">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="login-title">
+                <span class="glyphicon glyphicon-tree-deciduous green"></span>
+                <span class="orange">Admin</span> Management System
+            </div>
+            <div class="login-content slideUp">
+                <div class="title">
+                    <span>Please Log In</span>
+                </div>
+                <hr>
+                {% if errorMessages %}
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {% for item in errorMessages %}
+                            {{ item }} <br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <form action="{% url 'admin_login' %}" method="post" id="login-form">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ next }}" name="next" />
+                    <div class="input-group">
+                        <span class="input-group-addon input-label">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                        <input type="text" name="username" class="form-control input-input" placeholder="User Name">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon input-label">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </span>
+                        <input type="password" name="password" class="form-control input-input" placeholder="Password">
+                    </div>
+                    <div class="submit-row" style="text-align: center;">
+                        <button type="button" class="btn btn-primary" onclick="this.form.submit();">
+                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log In
+                        </button>
+                    </div>
+                </form>
+                <hr>
+                <div class="copyright">
+                    <span class="orange">&copy;2017 All Rights Reserved.</span>
+                </div>
+            </div>
         </div>
-        <div class="form-row">
-            {{ form.password.errors }}
-            {{ form.password.label_tag }} {{ form.password }}
-        <input type="hidden" name="next" value="{{ next }}" />
-        </div>
-        {% url 'admin_password_reset' as password_reset_url %}
-        {% if password_reset_url %}
-        <div class="password-reset-link">
-            <a href="{{ password_reset_url }}">Forgotten your password or username?</a>
-        </div>
-        {% endif %}
-        <div class="submit-row">
-        <label>&nbsp;</label><input type="submit" value="Log in" />
-        </div>
-    </form>
+    </div>
+
 </div>
 
 {% endblock %}

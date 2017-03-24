@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from TestUsePostgreSQL.apps.adminviews import AdminLogin
+
+
 urlpatterns = [
+    # My admin site
+    url(r'admin/login/$', AdminLogin.as_view(), name='admin_login'),
+
     url(r'^admin/', admin.site.urls),
 ]
