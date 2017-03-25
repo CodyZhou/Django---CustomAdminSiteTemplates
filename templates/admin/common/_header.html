@@ -1,0 +1,19 @@
+{% load admin_information %}
+<div class="admin-header">
+    {#  show / hidden button, used to show or hiddel menubar #}
+    <div class="sidemenu-button pull-left">
+        <a href="/admin"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>
+    </div>
+
+    {#  Title #}
+    <div class="title pull-left">
+        {% get_admin_site_main_title %}
+    </div>
+
+    {#  View website link #}
+    <div class="greeting pull-right">
+        <span>WELCOME, {{ request.user.firstname }}</span>
+    </div>
+    {#  Change password function #}
+    {#  Log out link #}
+</div>

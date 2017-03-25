@@ -22,18 +22,53 @@ body {
     height: inherit;
 }
 
+.green {
+    color: green;
+}
+.orange {
+    color: #ff751d;
+}
+
+.admin-header {
+    width: 100%;
+    background-color: #0f0f0f;
+    height: 50px;
+    color: white;
+    font-size: 18px;
+}
+.admin-header .sidemenu-button {
+    width: 50px;
+}
+.admin-header .sidemenu-button a {
+    display: inline-block;
+    line-height: 50px;
+    color: #EEEEEE;
+    text-align: center;
+    padding: 0px 20px 0px 25px;
+}
+.admin-header .sidemenu-button a:hover {
+    color: orangered;
+    background-color: #EEEEEE;
+    padding: 0px 20px;
+    cursor: pointer;
+    border-left: 5px solid orangered;
+}
+.admin-header .title {
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 20px;
+}
+.admin-header .greeting {
+    display: inline-block;
+    line-height: 50px;
+}
 
 .admin-login-content {
     min-width: 100%;
     min-height: 100%;
     background: url(../image/admin_bg_04.jpg) center no-repeat;
     overflow: hidden;
-}
-.admin-login-content .green {
-    color: green;
-}
-.admin-login-content .orange {
-    color: #ff751d;
 }
 
 .copyright {
@@ -48,6 +83,7 @@ body {
     color: white;
     margin: 30px auto;
 }
+
 .login-content {
     width: 90%;
     margin: 50px auto;

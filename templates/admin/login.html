@@ -1,20 +1,22 @@
 {% extends "admin/admin_base.html" %}
 {% load staticfiles %}
 
+{% block title %}User Login{% endblock %}
 {% block special_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/animation.css' %}" />
 {% endblock %}
 
-{% block navbar %}{% endblock %}  {# We do not need navbar in login.html #}
-{% block sidebar %}{% endblock %}  {# We do not need sidebar in login.html #}
+{#{% block navbar %}{% endblock %}  {# We do not need navbar in login.html #}
+{#{% block sidemenu %}{% endblock %}  {# We do not need sidemenu in login.html #}
+
+{% load admin_information %}
 
 {% block content %}
 <div class="admin-login-content">
     <div class="row">
         <div class="col-sm-4 col-sm-offset-4">
             <div class="login-title">
-                <span class="glyphicon glyphicon-tree-deciduous green"></span>
-                <span class="orange">Admin</span> Management System
+                {% get_admin_site_main_title %}
             </div>
             <div class="login-content slideUp">
                 <div class="title">
@@ -29,7 +31,7 @@
                         {% endfor %}
                     </div>
                 {% endif %}
-                <form action="{% url 'admin_login' %}" method="post" id="login-form">
+                <form action="{% url 'admin_site_login' %}" method="post" id="login-form">
                     {% csrf_token %}
                     <input type="hidden" value="{{ next }}" name="next" />
                     <div class="input-group">
@@ -51,9 +53,7 @@
                     </div>
                 </form>
                 <hr>
-                <div class="copyright">
-                    <span class="orange">&copy;2017 All Rights Reserved.</span>
-                </div>
+                {% get_admin_site_copyright %}
             </div>
         </div>
     </div>

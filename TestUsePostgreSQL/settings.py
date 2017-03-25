@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'TestUsePostgreSQL.apps.Localisation',
     'TestUsePostgreSQL.apps.Publisher',
 
+    # Apps For My Admin Site
+    'TestUsePostgreSQL.apps.AdminSite',
+
 ]
 
 MIDDLEWARE = [

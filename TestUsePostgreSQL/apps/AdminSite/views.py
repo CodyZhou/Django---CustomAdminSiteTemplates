@@ -1,15 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# @Time    : 3/23/2017 5:54 PM
-# @Author  : Cody Zhou
-# @File    : adminviews.py
-# @Software: PyCharm
-# @Description:
-#   
-#   
-
 from django.shortcuts import render
-from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.contrib.auth import authenticate, login

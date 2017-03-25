@@ -13,15 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
-from TestUsePostgreSQL.apps.adminviews import AdminLogin
+# from TestUsePostgreSQL.apps.AdminSite import AdminLogin
 
 
 urlpatterns = [
-    # My admin site
-    url(r'admin/login/$', AdminLogin.as_view(), name='admin_login'),
+    # for my admin site.
+    url(r'^admin/', include('TestUsePostgreSQL.apps.AdminSite.urls'), name='admin_site'),
 
+    # for Django admin site.
     url(r'^admin/', admin.site.urls),
 ]
