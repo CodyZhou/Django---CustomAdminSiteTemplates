@@ -11,9 +11,10 @@ from django.conf.urls import url
 
 from TestUsePostgreSQL.apps.AdminSite.views import AdminLogin
 
+app_name = "admin_site"
 
 urlpatterns = [
     # My admin site
-    url(r'^login/$', AdminLogin.as_view(), name='admin_site_login'),
+    url(r'^login/$', AdminLogin.as_view(), name="login"),
 
 ]
