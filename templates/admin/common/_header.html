@@ -1,6 +1,6 @@
 {% load admin_information %}
 <div class="admin-header">
-    {#  show / hidden button, used to show or hiddel menubar #}
+    {#  show / hidden button, used to show or hiddel sidemenu #}
     <div class="sidemenu-button pull-left">
         <a href="/admin"><span class="glyphicon glyphicon-sort-by-attributes"></span></a>
     </div>
@@ -10,10 +10,15 @@
         {% get_admin_site_main_title %}
     </div>
 
-    {#  View website link #}
+    {#  Links #}
     <div class="greeting pull-right">
-        <span>WELCOME, {{ request.user.firstname }}</span>
+        {#  View website link #}
+        <span>WELCOME, {{ user.username }}</span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        {#  Change password function #}
+        <span><a href="/" target="_blank">View Site</a></span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        {#  Log out link #}
+        <span><a href="{% url 'admin_site:logout' %}" >Logout</a></span>
     </div>
-    {#  Change password function #}
-    {#  Log out link #}
 </div>

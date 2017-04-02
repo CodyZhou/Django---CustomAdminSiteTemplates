@@ -1,0 +1,35 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}User Logout{% endblock %}
+
+{% block navbar %}{% endblock %}  {# We do not need navbar in login.html #}
+{% block sidemenu %}{% endblock %}  {# We do not need sidemenu in login.html #}
+
+{% load admin_information %}
+{% block content %}
+<div class="admin-login-content">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="login-title">
+                {% get_admin_site_main_title %}
+            </div>
+            <div class="login-content">
+                <div class="title">
+                    <span>Logout Successful!</span>
+                </div>
+                <hr>
+                <span>Thank you for using Admin Management System, you already logout successful.</span>
+                <br>
+                <br>
+                <span>
+                    <a href="/admin/">Log In Again</a>
+                </span>
+                <hr>
+                {% get_admin_site_copyright %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

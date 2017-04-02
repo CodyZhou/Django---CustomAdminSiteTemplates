@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views import View
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import (
+    authenticate,
+    login,
+    logout
+)
 
 
 class AdminLogin(View):
@@ -17,7 +22,7 @@ class AdminLogin(View):
         :return: admin/login.html
         """
         # Get the next url, it is used to define the next location after the login successful.
-        next_url = request.GET['next']
+        next_url = request.GET.get('next', '/admin/')
         return render(request, 'admin/login.html', context={'next': next_url})
 
     def post(self, request, *args, **kwargs):
@@ -29,9 +34,9 @@ class AdminLogin(View):
         :return:
                 If the user exist, go to the previous url, otherwise, go back to login page.
         """
-        username = request.POST['username']
-        password = request.POST['password']
-        next_url = request.POST['next']
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        next_url = request.POST.get('next', '/admin/login')
 
         # Verify the data
         user = authenticate(username=username, password=password)
@@ -43,16 +48,40 @@ class AdminLogin(View):
 
             return HttpResponseRedirect(next_url)
         else:
-            return render(request, 'admin/login.html', context={'errorMessages': ['Can not find this user!'] })
+            return render(request, 'admin/login.html', context={'errorMessages': ['Can not find this user!'], 'next': next_url })
+
+
+class AdminLogout(View):
+    """
+    Purpose:  This class is used to replace the logout logic of django default admin site.
+    Limit:  This class does not support the POST request.
+    """
+
+    def get(self, request, *args, **kwargs):
+        """
+        This method is used to do the logout logic, release all data from the user session.
+        :param request:
+        :param args:
+        :param kwargs:
+        :return:
+        """
+        # Logout the user
+        logout(request=request)
+
+        # redirect to the admin/
+        # return HttpResponseRedirect('/admin/')
+
+        # using logout template
+        return render(request, 'admin/logout.html')
 
 
 class AdminIndex(View):
     """
     Purpose:  This class is used to replace the index logic of django default admin site.
-    Limit:  This class does not receive the POST request.
+    Limit:  This class does not support the POST request.
     """
     def get(self, request, *args, **kwargs):
-        # check the user's permission
+        # check the user's permission, get all app_list.
 
         # Follow the permission to go to the dashboard or go to the login template
 

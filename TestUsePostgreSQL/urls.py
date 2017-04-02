@@ -21,7 +21,7 @@ from django.contrib import admin
 
 urlpatterns = [
     # for my admin site.
-    url(r'^admin/', include('TestUsePostgreSQL.apps.AdminSite.urls'), name='admin_site'),
+    url(r'^admin/', include('TestUsePostgreSQL.apps.AdminSite.urls')),
 
     # for Django admin site.
     url(r'^admin/', admin.site.urls),

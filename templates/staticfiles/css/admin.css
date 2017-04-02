@@ -22,6 +22,7 @@ body {
     height: inherit;
 }
 
+/* Used to define the special color for Admin Site Title */
 .green {
     color: green;
 }
@@ -29,6 +30,7 @@ body {
     color: #ff751d;
 }
 
+/* admin-header section  -------  START  ------*/
 .admin-header {
     width: 100%;
     background-color: #0f0f0f;
@@ -62,7 +64,18 @@ body {
 .admin-header .greeting {
     display: inline-block;
     line-height: 50px;
+    margin: 0px 20px;
 }
+.admin-header .greeting a {
+    color: white;
+}
+.admin-header .greeting a:hover {
+    color: orangered;
+}
+/* admin-header section  -------  END  ------*/
+
+
+/* admin-login section  -------  START  ------*/
 
 .admin-login-content {
     min-width: 100%;
@@ -96,3 +109,5 @@ body {
 .login-content .title {
     font-size: 20px;
 }
+
+/* admin-login section  -------  END  ------*/
