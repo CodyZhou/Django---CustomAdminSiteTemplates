@@ -2,17 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{% static "staticfiles/image/favicon.ico" %}" type="image/gif" sizes="16x16">
-
     <title>{% block title %}{% endblock %} | Administrator Page</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'staticfiles/css/admin.css' %}" />
 
-    {% block special_css %}
-    {% endblock %}
+    {% include "admin/common/_main_head.html" %}
+    {% block special_css %}{% endblock %}
 
 </head>
 <body>
@@ -22,7 +15,7 @@
 {% endblock %}
 
 {% block sidemenu %}
-
+    {% include "admin/common/_sidemenu.html" %}
 {% endblock %}
 
 {% block content %}

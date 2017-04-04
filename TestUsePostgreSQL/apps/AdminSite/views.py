@@ -42,13 +42,21 @@ class AdminLogin(View):
         user = authenticate(username=username, password=password)
 
         if user is not None:
-            login(request, user)
+            if user.is_active:
+                login(request, user)
+                print(user.groups)
+                print("We got next request is: {0}" . format(next_url))
 
-            print("We got next request is: {0}" . format(next_url))
+                return HttpResponseRedirect(next_url)
 
-            return HttpResponseRedirect(next_url)
+            else:
+                return render(request, 'admin/login.html',
+                              context={'errorMessages': ['This user is not active, please contact administrator'],
+                                       'next': next_url}
+                              )
         else:
-            return render(request, 'admin/login.html', context={'errorMessages': ['Can not find this user!'], 'next': next_url })
+            return render(request, 'admin/login.html',
+                          context={'errorMessages': ['Can not find this user!'], 'next': next_url })
 
 
 class AdminLogout(View):
