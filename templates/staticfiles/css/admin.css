@@ -1,3 +1,5 @@
+@import "admin/side_menu.css";
+
 html {
     width: 100%;
     height: 100%;
@@ -112,68 +114,6 @@ body {
 }
 
 /* admin-login section  -------  END  ------*/
-
-/* side-menu section  --------- STARTED  -------- */
-.side-menu {
-    min-width: 250px;
-    height: 100%;
-    position: fixed;
-    background-color: #0f0f0f;
-    border-top: 5px solid orangered;
-    color: white;
-    top: 50px;
-}
-
-.side-menu a {
-    color: #C4C4C4;
-    text-decoration: none;
-}
-.side-menu a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.side-menu-content .title {
-    line-height: 40px;
-    width: 100%;
-    padding-left: 10px;
-    border-top: 1px solid rgba(40, 40, 40, 1.0);
-    /*border-bottom: 1px solid rgba(40, 40, 40, 1.0);*/
-}
-.side-menu-content .title:hover {
-    cursor: pointer;
-    background-color: #3c3c3c;
-}
-.side-menu-content .title:hover a {
-    color: white;
-}
-
-.side-menu-content .entry {
-    line-height: 25px;
-    width: 100%;
-    padding-left: 25px;
-    margin: 5px;
-}
-.side-menu-content .entry-selected {
-    line-height: 25px;
-    width: 100%;
-    padding-left: 25px;
-    margin: 5px;
-    background-color: #3c3c3c;
-    border-left: 3px solid orangered;
-    border-right: 3px solid orangered;
-}
-
-.side-menu-content .entry:hover {
-    background-color: #3c3c3c;
-    border-left: 3px solid orangered;
-    border-right: 3px solid orangered;
-}
-.side-menu-content .entry:hover a {
-    color: white;
-}
-
-/* side-menu section  --------- END  -------- */
 
 
 /* content-main section  -------- STARTED ------- */

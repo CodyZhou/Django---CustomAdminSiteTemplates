@@ -1,6 +1,12 @@
 <div class="side-menu" style="display:none">
     <div class="side-menu-content">
         <div class="panel-group" id="sidemenu">
+            <a href="/admin/" data-parent="#sidemenu">
+                <div class="title">
+                    <span class="glyphicon glyphicon-dashboard"></span>
+                    &nbsp;&nbsp;Dashboard
+                </div>
+            </a>
             {% if app_list %}
                 {% for app in app_list %}
                     <a href="#collapse-{{ app.app_label }}" data-toggle="collapse" data-parent="#sidemenu">
@@ -13,7 +19,7 @@
                     <div class="panel-collapse collapse subtitle" id="collapse-{{ app.app_label }}" >
                         {% for model in app.models %}
                             {% if model.admin_url %}
-                                <a onclick="" class="entry-link"><li class="entry" id="entry-{{ model.object_name }}">{{ model.name }}</li></a>
+                                <a href="{{ model.admin_url }}" class="entry-link"><li class="entry" id="entry-{{ model.object_name }}">{{ model.name }}</li></a>
                             {% else %}
                                 <li class="entry" id="entry-{{ model.name }}">{{ model.name }}</li>
                             {% endif %}

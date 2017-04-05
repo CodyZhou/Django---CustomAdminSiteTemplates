@@ -1,3 +1,6 @@
+from django.apps import apps
+from django.contrib import admin
+
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
@@ -44,7 +47,15 @@ class AdminLogin(View):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                print(user.groups)
+                print(user.get_group_permissions())
+                print(user.get_all_permissions())
+                print(dir(user))
+                print('------ APPS -------')
+                print(apps.get_app_configs())
+                print('------- APPS  ----------')
+                print(admin.site.get_app_list(request))
+
+
                 print("We got next request is: {0}" . format(next_url))
 
                 return HttpResponseRedirect(next_url)
