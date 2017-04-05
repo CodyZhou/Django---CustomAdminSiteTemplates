@@ -37,6 +37,7 @@ body {
     height: 50px;
     color: white;
     font-size: 18px;
+    position: fixed;
 }
 .admin-header .sidemenu-button {
     width: 50px;
@@ -120,6 +121,7 @@ body {
     background-color: #0f0f0f;
     border-top: 5px solid orangered;
     color: white;
+    top: 50px;
 }
 
 .side-menu a {
@@ -152,6 +154,16 @@ body {
     padding-left: 25px;
     margin: 5px;
 }
+.side-menu-content .entry-selected {
+    line-height: 25px;
+    width: 100%;
+    padding-left: 25px;
+    margin: 5px;
+    background-color: #3c3c3c;
+    border-left: 3px solid orangered;
+    border-right: 3px solid orangered;
+}
+
 .side-menu-content .entry:hover {
     background-color: #3c3c3c;
     border-left: 3px solid orangered;
@@ -162,3 +174,13 @@ body {
 }
 
 /* side-menu section  --------- END  -------- */
+
+
+/* content-main section  -------- STARTED ------- */
+.content-main {
+    padding-top: 55px;
+
+}
+
+/* content-main section  -------- END ------- */
+

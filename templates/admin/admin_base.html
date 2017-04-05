@@ -6,6 +6,9 @@
 
     {% include "admin/common/_main_head.html" %}
     {% block special_css %}{% endblock %}
+    <script src="{% static 'staticfiles/js/jquery-3.2.0.min.js' %}"></script>
+    <script src="{% static 'staticfiles/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'staticfiles/js/admin/common.js' %}"></script>
 
 </head>
 <body>
@@ -21,8 +24,6 @@
 {% block content %}
 {% endblock %}
 
-<script src="{% static 'staticfiles/js/jquery-3.2.0.min.js' %}"></script>
-<script src="{% static 'staticfiles/js/bootstrap.min.js' %}"></script>
 
 {% block special_js %}
 {% endblock %}
