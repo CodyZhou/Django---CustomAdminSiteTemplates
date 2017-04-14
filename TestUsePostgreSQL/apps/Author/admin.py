@@ -7,7 +7,7 @@ from TestUsePostgreSQL.apps.Author.models import Author, AuthorAddress
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     # OR you can set list_display = ('get_full_name',) to display author's full name.
-    list_display = ('__str__', 'show_author_full_name', 'email', 'format_phone', 'status', 'added_date', 'edit_link')
+    list_display = ('show_author_full_name', 'email', 'format_phone', 'status', 'added_date', 'edit_link')
     list_display_links = ('edit_link',)
 
     list_filter = ('status', 'added_date')

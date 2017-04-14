@@ -1,4 +1,5 @@
 @import "admin/side_menu.css";
+@import "admin/side_bar.css";
 
 html {
     width: 100%;
@@ -31,6 +32,9 @@ body {
 .orange {
     color: orangered;
 }
+hr {
+    margin: 10px 0px;
+}
 
 /* admin-header section  -------  START  ------*/
 .admin-header {
@@ -40,6 +44,7 @@ body {
     color: white;
     font-size: 18px;
     position: fixed;
+    z-index: 100;
 }
 .admin-header .sidemenu-button {
     width: 50px;
@@ -91,6 +96,7 @@ body {
     text-align: right;
     font-size: 14px;
     color: white;
+    margin-top: 10px;
 }
 
 .login-title {
@@ -111,6 +117,7 @@ body {
 
 .login-content .title {
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 /* admin-login section  -------  END  ------*/
@@ -118,9 +125,24 @@ body {
 
 /* content-main section  -------- STARTED ------- */
 .content-main {
-    padding-top: 55px;
-
+    padding: 55px 10px 10px 10px;
 }
 
 /* content-main section  -------- END ------- */
+
+
+/* for conent page  ------------ STARTED ----------*/
+.breadcrumbs {
+    margin-bottom: 15px;
+}
+
+.object-tools {
+    margin-right: 20px;
+}
+
+
+#changelist #toolbar form #searchbar {
+    height: 26px;
+}
+/* for change list  ------------ END ----------*/
 

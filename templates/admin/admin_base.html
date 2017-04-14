@@ -6,16 +6,18 @@
 
     {% include "admin/common/_main_head.html" %}
     {% block special_css %}{% endblock %}
+    {% block extrastyle %}{% endblock %}
 
 </head>
-<body>
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}" data-admin-utc-offset="{% now "Z" %}">
 
 {% block navbar %}
     {% include "admin/common/_header.html"  %}
 {% endblock %}
 
+{% load admin_information %}
 {% block sidemenu %}
-    {% include "admin/common/_sidemenu.html" %}
+    {% get_side_menu request %}
 {% endblock %}
 
 {% block content %}{% endblock %}

@@ -1,0 +1,66 @@
+/* SIDEBAR */
+#content-related {
+    float: right;
+    width: 260px;
+    margin-right: 10px;
+    position: relative;
+    background: #f8f8f8;
+    box-shadow: 5px 5px #EEEEEE;
+    border: 1px solid #EEEEEE;
+}
+
+#content-related .module {
+    background: none;
+}
+
+#content-related h3 {
+    font-size: 14px;
+    color: #666;
+    padding: 0 16px;
+    margin: 0 0 16px;
+}
+
+#content-related h4 {
+    font-size: 13px;
+}
+
+#content-related p {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#content-related .actionlist {
+    padding: 0;
+    margin: 16px;
+}
+
+#content-related .actionlist li {
+    line-height: 1.2;
+    margin-bottom: 10px;
+    padding-left: 18px;
+    list-style: none;
+}
+
+#content-related .module h2 {
+    background: none;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 18px;
+    color: #333;
+}
+
+.addlink {
+    padding-left: 16px;
+    background: url(../../image/icon-addlink.svg) 0 1px no-repeat;
+}
+
+.changelink, .inlinechangelink {
+    padding-left: 16px;
+    background: url(../../image/icon-changelink.svg) 0 1px no-repeat;
+}
+
+.deletelink {
+    padding-left: 16px;
+    background: url(../../image/icon-deletelink.svg) 0 1px no-repeat;
+}

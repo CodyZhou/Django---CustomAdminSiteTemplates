@@ -55,7 +55,6 @@ class AdminLogin(View):
                 print('------- APPS  ----------')
                 print(admin.site.get_app_list(request))
 
-
                 print("We got next request is: {0}" . format(next_url))
 
                 return HttpResponseRedirect(next_url)
