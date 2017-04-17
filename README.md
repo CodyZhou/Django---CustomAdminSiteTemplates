@@ -6,7 +6,7 @@ Description
 
 Installation
 --------
-  This project is focused on the templates, so it does not need some special libraries. For database, i use PostgresSQL for this test project, so if you want to follow me, you have to install the psycopg2 library. BUT you can use any database which you like, just set up the connector as well as.
+  This project is focused on the templates, so it does not need some special libraries. For database, i use PostgresSQL for this test project, so if you want to follow me, you have to install the psycopg2 library. BUT you can use any database which you like, just need to set up the connector and the config file.
   You can find my libraries list in the file requirements.txt, which is in the root folder. For convenience, I list some main libraries of the file as below.
   * python==3.4.4
   * Django==1.10.4
