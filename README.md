@@ -25,15 +25,16 @@ Installation
 Screen Shot
 ------
   Login Page
+  ---
   ![Login Page](./templates/staticfiles/image/login.png "Login Page")
-  ---
   Dashboard Page
+  ---
   ![Dashboard Page](./templates/staticfiles/image/index.png "Dashboard Page")
-  ---
   Model Page
-  ![Model Page](./templates/staticfiles/image/model.png "Model Page")
   ---
+  ![Model Page](./templates/staticfiles/image/model.png "Model Page")
   Edit Model Page
+  ---
   ![Edit Model Page](./templates/staticfiles/image/edit.png "Edit Model Page")
 
 Contact Me
