@@ -24,7 +24,5 @@ Installation
 
 Screen Shot
 ------
-
-
-# This is a test project, it is used to try connect PostgreSQL database instead of the MySQL database.
+  ![Login Page](./templates/staticfiles/image/login.png "Login Page")
 
