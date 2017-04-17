@@ -24,7 +24,6 @@ Installation
 
 Screen Shot
 ------
-  ---
   Login Page
   ![Login Page](./templates/staticfiles/image/login.png "Login Page")
   ---
