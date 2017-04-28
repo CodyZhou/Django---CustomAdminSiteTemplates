@@ -10,7 +10,7 @@
 from rest_framework import serializers
 
 from TestUsePostgreSQL.apps.Author.models import Author, AuthorAddress
-
+from TestUsePostgreSQL.apps.Localisation.models import Country, Zone
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,8 +19,27 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class AuthorAddressSerializer(serializers.ModelSerializer):
-    # author = AuthorSerializer
+    # author_id = serializers.SerializerMethodField()
+    fulladdress = serializers.SerializerMethodField()
+    country = serializers.SerializerMethodField()
+    author_name = serializers.SerializerMethodField()
+    zone = serializers.SerializerMethodField()
+
     class Meta:
         model = AuthorAddress
-        fields = ('id', '__str__')
+        fields = ('id', 'author_id', 'author_name', 'address_1', 'address_2', 'city', 'zip', 'zone', 'country', 'fulladdress')
+
+    def get_author_name(self, obj):
+        return obj.author.firstname + ' ' + obj.author.lastname
+
+    def get_country(self, obj):
+        return obj.country.name
+
+    def get_zone(self, obj):
+        return obj.zone.name
+
+    def get_fulladdress(self, obj):
+        return obj.get_address()
+
+
 

@@ -46,7 +46,7 @@ class APIAuthorAddress(APIView):
     def get(self, request, *args, **kwargs):
         author_id = kwargs.get('author_id')
         address = AuthorAddress.objects.filter(author_id=author_id)
-        print(list(address))
+        # print(list(address))
         # try:
         #     author_id = kwargs.get('author_id')
         #     print("--------------")
@@ -57,7 +57,7 @@ class APIAuthorAddress(APIView):
         # except:
         #     raise Http404
 
-        serializer = AuthorAddressSerializer(address)
+        serializer = AuthorAddressSerializer(address, many=True)
 
         return Response(serializer.data)
 
