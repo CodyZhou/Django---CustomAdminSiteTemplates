@@ -38,11 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Apps
+    # Apps for special framwork
+    'rest_framework',
+
+    # My Apps
     'TestUsePostgreSQL.apps.Book',
     'TestUsePostgreSQL.apps.Author',
     'TestUsePostgreSQL.apps.Localisation',
     'TestUsePostgreSQL.apps.Publisher',
+    'TestUsePostgreSQL.apps.Api',
 
     # Apps For My Admin Site
     'TestUsePostgreSQL.apps.AdminSite',

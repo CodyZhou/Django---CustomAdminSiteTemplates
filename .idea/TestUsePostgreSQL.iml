@@ -13,7 +13,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.4.4 virtualenv at D:\WorkSpace\Python\DjangoProject\TestVirtual" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.4.0 virtualenv at D:\Test\TestDjango\virtualenv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
