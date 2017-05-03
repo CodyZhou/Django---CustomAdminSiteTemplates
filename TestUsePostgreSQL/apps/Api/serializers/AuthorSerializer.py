@@ -12,10 +12,33 @@ from rest_framework import serializers
 from TestUsePostgreSQL.apps.Author.models import Author, AuthorAddress
 from TestUsePostgreSQL.apps.Localisation.models import Country, Zone
 
+
+class AuthorRelatedSerializer(serializers.ModelSerializer):
+    url = serializers.HyperlinkedIdentityField(
+        view_name='api:AuthorDetails',
+    )
+
+    class Meta:
+        model = Author
+        fields = ('id', 'firstname', 'lastname', 'url')
+
+
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = ('id', 'firstname', 'lastname', 'email', 'phone', 'status', 'added_date', 'updated_date')
+
+
+class AuthorAddSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = (
+            'firstname',
+            'lastname',
+            'email',
+            'phone',
+            'status'
+        )
 
 
 class AuthorAddressSerializer(serializers.ModelSerializer):

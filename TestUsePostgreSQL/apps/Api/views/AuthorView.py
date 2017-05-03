@@ -12,20 +12,67 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.http import Http404
 
+from django.core.paginator import (
+    Paginator,
+    EmptyPage,
+    PageNotAnInteger
+)
+
 from TestUsePostgreSQL.apps.Author.models import Author, AuthorAddress
 
-from TestUsePostgreSQL.apps.Api.serializers.AuthorSerializer import AuthorSerializer, AuthorAddressSerializer
+from TestUsePostgreSQL.apps.Api.serializers.AuthorSerializer import (
+    AuthorSerializer,
+    AuthorAddSerializer,
+    AuthorAddressSerializer,
+)
 
 
 class APIAuthorList(APIView):
     def get(self, request):
         authors = Author.objects.all()
-        serializer = AuthorSerializer(authors, many=True)
-        print(serializer.data)
-        return Response(serializer.data)
 
-    # def post(self, request):
-    #     pass
+        # Use Paginator
+        paginator = Paginator(authors, 2)
+
+        # Get the page
+        page = self.request.GET.get('page', 1)
+
+        try:
+            if int(page) > paginator.num_pages:
+                page = paginator.num_pages
+        except ValueError:
+            page = 1
+
+        print("--------------- Page -----------")
+        print(page)
+        print("--------------- Page -----------")
+
+        results = paginator.page(page)
+
+        serializer = AuthorSerializer(results, many=True)
+        print(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class APIAuthorAdd(APIView):
+    def post(self, request):
+        serializer = AuthorAddSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+"""
+# Test data for Author Add and Author Edit
+{
+    "firstname": "API-01",
+    "lastname": "Test",
+    "email": "cody@jiusite-2234.com",
+    "phone": "11223344345",
+    "status": 10
+}
+"""
 
 
 class APIAuthor(APIView):
@@ -39,7 +86,21 @@ class APIAuthor(APIView):
 
         return Response(serializer.data)
 
-    # def post(self, request, ):
+    def put(self, request, pk):
+        author = Author.objects.get(pk=pk)
+        serializer = AuthorAddSerializer(author, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        author = Author.objects.get(pk=pk)
+        author.delete()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class APIAuthorAddress(APIView):

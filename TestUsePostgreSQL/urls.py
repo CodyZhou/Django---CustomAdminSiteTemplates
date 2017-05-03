@@ -27,6 +27,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # For REST Framwork
-    url(r'api/', include('TestUsePostgreSQL.apps.Api.urls')),
+    url(r'api/', include('TestUsePostgreSQL.apps.Api.urls', namespace='api')),
 
 ]
