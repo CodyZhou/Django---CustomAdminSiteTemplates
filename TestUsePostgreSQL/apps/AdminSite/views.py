@@ -16,6 +16,7 @@ class AdminLogin(View):
     """
     Purpose: This class is used to replace the login logic of the django default admin site.
     """
+
     def get(self, request, *args, **kwargs):
         """
         This method is used to catch the GET request, show the login page.
@@ -55,18 +56,19 @@ class AdminLogin(View):
                 print('------- APPS  ----------')
                 print(admin.site.get_app_list(request))
 
-                print("We got next request is: {0}" . format(next_url))
+                print("We got next request is: {0}".format(next_url))
 
                 return HttpResponseRedirect(next_url)
 
             else:
                 return render(request, 'admin/login.html',
-                              context={'errorMessages': ['This user is not active, please contact administrator'],
+                    context={'errorMessages': ['This user is not active, please contact administrator'],
                                        'next': next_url}
-                              )
+                )
         else:
             return render(request, 'admin/login.html',
-                          context={'errorMessages': ['Can not find this user!'], 'next': next_url })
+                context={'errorMessages': ['Can not find this user!'], 'next': next_url}
+            )
 
 
 class AdminLogout(View):
@@ -98,6 +100,7 @@ class AdminIndex(View):
     Purpose:  This class is used to replace the index logic of django default admin site.
     Limit:  This class does not support the POST request.
     """
+
     def get(self, request, *args, **kwargs):
         # check the user's permission, get all app_list.
 
